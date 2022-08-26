@@ -3,19 +3,42 @@ import "./css/register.css";
 import registerViewImage from "./images/registerViewImage.png";
 import TextField from "@material-ui/core/TextField";
 import Button from "react-bootstrap/esm/Button";
+// import {auth} from "./firebase"
+import { useState } from "react";
 
 const Register = () => {
+  const [name , setName] = useState("")
+  const [email , setEmail] = useState("")
+  const [password , setPassword] = useState("")
+  const [gender , setGender] = useState("")
+  // console.log("gender",gender);
+
+  const dataSubmitFirebase= (e)=>{
+      e.preventDefault()
+      // auth.createUserWithEmailAndPassword(name,email,password,gender)
+      setName("")
+      setEmail("")
+      setPassword("")
+      setGender("")
+      console.log("data",name); 
+      console.log("data",email);
+      console.log("data",gender);
+      console.log("data",password);
+  }   
   return (
     <div className="backimage">
       <div className="registerinputimage">
         <div className="inputBox">
           <span className="regiterName">Register</span>
           <div>
+            {/* <form noValidate autoComplete="off" onSubmit={dataSubmitFirebase}> */}
             <form noValidate autoComplete="off">
+
               <TextField
                 type="text"
                 style={{ margin: "20px", width: "-webkit-fill-available" }}
-                // className="forminput4"
+                value={name}
+                onChange={(e)=>setName(e.target.value)}
                 id="standard-basic"
                 label="Enter Your Name"
               />
@@ -23,6 +46,8 @@ const Register = () => {
               <TextField
                 type="text"
                 style={{ margin: "20px", width: "-webkit-fill-available" }}
+                value={email}
+                onChange={(e)=>setEmail(e.target.value)}
                 id="standard-basic"
                 label="Enter Your Email"
               />
@@ -30,19 +55,21 @@ const Register = () => {
               <TextField
                 type="password"
                 style={{ margin: "20px", width: "-webkit-fill-available" }}
+                value={password}
+                onChange={(e)=>setPassword(e.target.value)}
                 id="standard-basic"
                 label="Enter The Password"
               />
               <br />
-              <div style={{textAlignLast: "start",margin: "20px"}}>
+              <div className="radioButton">
               <h3>Select Gender </h3>
                 <label>Male </label>
-                <input type="radio" />
+                <input type="radio" name="gender" value={"male"} onChange={(e)=>setGender(e.target.value)}/>
                 <label>FeMale</label>
-                <input type="radio" />
+                <input type="radio" name="gender" value={"female"}  onChange={(e)=>setGender(e.target.value)}/>
               </div>
               <br />
-              <Button variant="secondary">Submit</Button>{" "}
+              <Button variant="secondary" onClick={(e)=>dataSubmitFirebase(e)}>Submit</Button>
             </form>
           </div>
         </div>

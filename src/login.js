@@ -11,16 +11,8 @@ const Login = () => {
       <div className="registerinputimage">
         <div className="inputBox">
           <span className="regiterName">Sign Up</span>
-          <div>
+          <div style={{paddingTop:"90px"}}>
             <form noValidate autoComplete="off">
-              <TextField
-                type="text"
-                style={{ margin: "20px", width: "-webkit-fill-available" }}
-                // className="forminput4"
-                id="standard-basic"
-                label="Enter Your Name"
-              />
-              <br />
               <TextField
                 type="text"
                 style={{ margin: "20px", width: "-webkit-fill-available" }}

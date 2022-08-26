@@ -29,3 +29,10 @@
     width: 700px;
     margin: 100px;
 }
+.radioButton{
+    text-align-last: start;
+    margin: 20px
+}
+.radioButton label{
+    margin:10px
+}
